@@ -6,7 +6,7 @@
 /*   By: hece <hece@student.42kocaeli.com.tr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 14:45:19 by hece              #+#    #+#             */
-/*   Updated: 2023/02/16 17:17:28 by hece             ###   ########.tr       */
+/*   Updated: 2023/02/17 11:54:39 by hece             ###   ########.tr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,25 @@ int
 }
 
 t_stack
+	*ft_split_check(int ac, char *av[], t_stack *stack_a)
+{
+	int		index;
+	int		number;
+	char	**split;
+
+	index = 0;
+	split = ft_split(av[1]);
+	ac = word_count(av[1], ' ');
+	while (index < ac)
+	{
+		number = ft_atoi(split[index]);
+		ft_add_back(&stack_a, ft_create_new_stack(number));
+		index++;
+	}
+	return (stack_a);
+}
+
+t_stack
 	*ft_create_and_fill_stack(int ac, char *av[])
 {
 	t_stack	*stack_a;
@@ -64,6 +83,8 @@ t_stack
 	stack_a = NULL;
 	if (ac < 2)
 		exit(1);
+	else if (ac == 2)
+		stack_a = ft_split_check(ac, av, stack_a);
 	else
 	{
 		while (index < ac)

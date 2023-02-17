@@ -6,11 +6,23 @@
 /*   By: hece <hece@student.42kocaeli.com.tr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 17:14:04 by hece              #+#    #+#             */
-/*   Updated: 2023/02/16 17:22:15 by hece             ###   ########.tr       */
+/*   Updated: 2023/02/17 11:53:29 by hece             ###   ########.tr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
+
+int
+	ft_is_sorted(t_stack *stack)
+{
+	while (stack->next)
+	{
+		if (stack->nbr > stack->next->nbr)
+			return (0);
+		stack = stack->next;
+	}
+	return (1);
+}
 
 int
 	is_digit(int c)
@@ -23,7 +35,7 @@ int
 int
 	ft_is_duplicate(t_stack *stack)
 {
-	t_stack *tmp;
+	t_stack	*tmp;
 
 	while (stack)
 	{
