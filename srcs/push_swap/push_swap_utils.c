@@ -6,7 +6,7 @@
 /*   By: hece <hece@student.42kocaeli.com.tr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 14:45:19 by hece              #+#    #+#             */
-/*   Updated: 2023/02/17 11:54:39 by hece             ###   ########.tr       */
+/*   Updated: 2023/02/16 17:17:28 by hece             ###   ########.tr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,7 @@ t_stack
 		ft_add_back(&stack_a, ft_create_new_stack(number));
 		index++;
 	}
+	free(split);
 	return (stack_a);
 }
 
@@ -83,6 +84,7 @@ t_stack
 	stack_a = NULL;
 	if (ac < 2)
 		exit(1);
+
 	else if (ac == 2)
 		stack_a = ft_split_check(ac, av, stack_a);
 	else
