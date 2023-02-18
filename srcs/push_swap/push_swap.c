@@ -23,7 +23,7 @@ int
 	stack_a = ft_create_and_fill_stack(ac, av);
 	if (!stack_a || !ft_is_duplicate(stack_a))
 	{
-		free(stack_a);
+		ft_free(stack_a);
 		ft_error();
 	}
 	if (!ft_is_sorted(stack_a))
