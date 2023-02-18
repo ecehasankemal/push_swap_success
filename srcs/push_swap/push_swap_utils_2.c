@@ -32,3 +32,19 @@ void
 		stack = tmp;
 	}
 }
+
+void
+	ft_free_str(char **str)
+{
+	char	*tmp;
+
+	if (!str)
+		return ;
+	while (*str)
+	{
+		tmp = *str;
+		str++;
+		free(tmp);
+	}
+	*str = NULL;
+}

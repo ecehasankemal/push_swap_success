@@ -54,21 +54,23 @@ int
 }
 
 t_stack
-	*ft_split_check(int ac, char *av[], t_stack *stack_a)
+	*ft_split_check(char *av[])
 {
+	t_stack	*stack_a;
 	int		index;
 	int		number;
 	char	**split;
 
 	index = 0;
-	split = ft_split(av[1]);
-	ac = word_count(av[1], ' ');
-	while (index < ac)
+	stack_a = NULL;
+	split = ft_split(av[1], ' ');
+	while (split[index])
 	{
 		number = ft_atoi(split[index]);
 		ft_add_back(&stack_a, ft_create_new_stack(number));
 		index++;
 	}
+	ft_free_str(split);
 	free(split);
 	return (stack_a);
 }
@@ -84,9 +86,8 @@ t_stack
 	stack_a = NULL;
 	if (ac < 2)
 		exit(1);
-
 	else if (ac == 2)
-		stack_a = ft_split_check(ac, av, stack_a);
+		stack_a = ft_split_check(av);
 	else
 	{
 		while (index < ac)

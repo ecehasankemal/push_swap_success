@@ -25,14 +25,6 @@ int
 }
 
 int
-	is_digit(int c)
-{
-	if (c >= '0' && c <= '9')
-		return (1);
-	return (0);
-}
-
-int
 	ft_is_duplicate(t_stack *stack)
 {
 	t_stack	*tmp;
@@ -52,14 +44,12 @@ int
 }
 
 int
-	ft_check_args(int ac, char *av[], t_stack *stack)
+	ft_check_args(int ac, char *av[])
 {
 	int	index;
 	int	jndex;
 
 	index = 1;
-	if (ft_is_duplicate(stack))
-		return (0);
 	while (index < ac)
 	{
 		jndex = 0;
@@ -67,9 +57,9 @@ int
 			return (0);
 		while (av[index][jndex])
 		{
-			if (av[index][jndex] == '-' || av[index][jndex] == '+')
-				jndex++;
-			else if (!is_digit(av[index][jndex]))
+			if (!(av[index][jndex] == ' ' || av[index][jndex] == '+'
+				|| av[index][jndex] == '-')
+				&& (av[index][jndex] < '0' || av[index][jndex] > '9'))
 				return (0);
 			jndex++;
 		}
