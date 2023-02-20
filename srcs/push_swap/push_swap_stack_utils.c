@@ -23,7 +23,8 @@ void
 		(ft_stack_last(*stack))->next = stack_new;
 }
 
-t_stack	*ft_stack_last(t_stack *stack)
+t_stack
+	*ft_stack_last(t_stack *stack)
 {
 	if (!stack)
 		return (NULL);
@@ -32,7 +33,8 @@ t_stack	*ft_stack_last(t_stack *stack)
 	return (stack);
 }
 
-int	ft_stack_size(t_stack *stack)
+int
+	ft_stack_size(t_stack *stack)
 {
 	size_t	index;
 
@@ -45,7 +47,8 @@ int	ft_stack_size(t_stack *stack)
 	return (index);
 }
 
-int	ft_stack_min(t_stack *stack)
+int
+	ft_stack_min(t_stack *stack)
 {
 	int	min;
 
@@ -59,7 +62,8 @@ int	ft_stack_min(t_stack *stack)
 	return (min);
 }
 
-int	ft_stack_max(t_stack *stack)
+int
+	ft_stack_max(t_stack *stack)
 {
 	int	max;
 

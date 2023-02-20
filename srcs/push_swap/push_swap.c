@@ -18,10 +18,10 @@ int
 	t_stack	*stack_a;
 	t_stack	*stack_b;
 
-	if (!ft_check_args(ac, av));
+	if (!ft_check_args(ac, av))
 		ft_error();
 	stack_a = ft_create_and_fill_stack(ac, av);
-	if (!stack_a || !ft_is_duplicate(stack_a))
+	if (!stack_a || ft_is_duplicate(stack_a))
 	{
 		ft_free(stack_a);
 		ft_error();

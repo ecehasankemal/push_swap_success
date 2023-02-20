@@ -23,6 +23,7 @@ void
 	if (!*stack_a || !(*stack_a)->next)
 		return ;
 	second = first->next;
+	first->next = second->next;
 	second->next = first;
 	*stack_a = second;
 	if (num == 0)
@@ -40,6 +41,7 @@ void
 	if (!*stack_b || !(*stack_b)->next)
 		return ;
 	second = first->next;
+	first->next = second->next;
 	second->next = first;
 	*stack_b = second;
 	if (num == 0)
