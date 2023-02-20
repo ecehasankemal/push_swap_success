@@ -116,4 +116,8 @@ void	ft_error(void);
 void	ft_free(t_stack *stack);
 void	ft_free_str(char **str);
 
+// get_next_line.c
+
+char	*get_next_line(int fd);
+
 #endif
